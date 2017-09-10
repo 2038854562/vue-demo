@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>vue2.0</h1>
+    <div id="app">
+        {{message}}
+        <jinz></jinz>
+    </div>
+    <script>
+        var jinzComponent ={
+            template:`<div>come on</div>`
+        }
+        var jinzP = {
+            template:`<div>
+                       <p>this is the parent component!!</p>
+                       <jinzComponent></jinzComponent>
+                      </div>`,
+                    components:{
+                        "jinzComponent":jinzComponent
+                    }
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            components:{
+                "jinz":jinzP
+            }
+
+        })
+    </script>
+</body>
+</html>

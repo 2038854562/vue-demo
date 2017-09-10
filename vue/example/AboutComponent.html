@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识component</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>初识component 全局组件与局部组件</h1>
+    <div id="app">
+        <learn></learn>
+        <jinz></jinz>
+    </div>
+    <script type="text/javascript">
+        Vue.component('learn',{
+            template:`<div>全局化注册的learn组件</div>`
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+            },
+            components:{
+                'jinz':{
+                    template:`<div> you can do it ! come on  --局部注册组件</div>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

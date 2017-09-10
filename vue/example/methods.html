@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methods Option  方法选项</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>Methods Option  方法选项</h1>
+    <div id="app">
+        {{num}}
+        <button @click="add(3)">原始methods  add</button>
+        <Btn @click.native="add(4)"></Btn>
+    </div>
+    <!--外部调用-->
+    <button onclick="app.add(10)"> 外部调用</button>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 1
+            },
+            components:{
+                "Btn":{
+                    template:`<button>methods option  native 属性</button>`
+                }
+            },
+            methods:{
+                add:function(val){
+                    if(val!=''){
+                        this.num+=val
+                    }else{
+                        this.num++
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

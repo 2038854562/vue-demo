@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写在template标签里的模板</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>写在template标签里的模板</h1>
+    <div id="app">
+        {{message}}
+        <!--<template id="temp">-->
+            <!--<h2>第二种template</h2>-->
+        <!--</template>-->
+    </div>
+    <script type="x-template" id="templ">
+        <h2>第三种template</h2>
+    </script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            //template:`<div> 第一种 template</div>`
+            template:"#templ"
+        })
+    </script>
+</body>
+</html>

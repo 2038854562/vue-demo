@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component 组件props 属性设置</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>Component 组件props 属性设置</h1>
+    <div id="app">
+        {{message}}
+        <jinz :desc="message"></jinz>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            components:{
+                "jinz":{
+                    template:`<div> you can do it ! go! {{desc}}</div>`,
+                    props:['desc']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

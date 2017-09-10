@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text & v-html</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>v-text & v-html</h1>
+    <div id="app">
+        <span>{{message}}</span> vs <span v-text="message"></span><br>
+        <span v-html="msgHtml"></span>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'this is v-text',
+                msgHtml:'<h2>  this is v-html  </h2>'
+            }
+        })
+    </script>
+</body>
+</html>

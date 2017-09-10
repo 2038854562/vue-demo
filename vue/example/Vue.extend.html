@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.extend构造器的延伸</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <div id="author"></div>
+    <script>
+        var authorExtend = Vue.extend({
+            template:"<a :href='authorUrl'>{{authorName}}</a>",
+            data:function(){
+                return {
+                    authorName:'jspang',
+                    authorUrl:'http://jspang.com/2017/03/14/vue2_02/'
+                }
+            }
+        })
+
+        // 创建 author 实例，并挂载到一个元素上
+        new authorExtend().$mount('#author')
+    </script>
+</body>
+</html>

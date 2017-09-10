@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>vue2.0</h1>
+    <div id="app">
+        <p>{{num}}</p>
+        <p><button @click="add">add</button></p>
+    </div>
+    <p><button onclick="reduce()">reduce  on</button></p>
+    <p><button onclick="reduceOnce()">reduceOnce</button></p>
+    <p><button onclick="off()">off</button></p>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 1
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            }
+        });
+        //on 事件
+        app.$on('reduce',function(){
+            console.log("on 事件");
+            this.num--;
+        })
+        //
+        //外部调用 $on 事件
+        function reduce(){
+            app.$emit('reduce');
+        }
+        //调用一次的事件 $once
+        app.$once('reduceOnce',function(){
+            console.log('只调用一次 $once' );
+            this.num--;
+        })
+        //外部调用
+        function reduceOnce(){
+            app.$emit('reduceOnce');
+        }
+        //关闭事件 $off
+        function off(){
+            app.$off('reduce');
+        }
+    </script>
+</body>
+</html>

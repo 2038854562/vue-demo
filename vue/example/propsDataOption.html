@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>propsData Option  全局扩展的数据传递</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>propsData Option  全局扩展的数据传递</h1>
+    <div id="author"></div>
+    <script>
+        var authorExtend = Vue.extend({
+            template:'<p>{{message}}--{{a}}</p>',
+            data:function(){
+                return {
+                    message:`hello propsData`
+                }
+            },
+            props:['a']
+        })
+
+        new authorExtend({propsData:{a:'learn vue'}}).$mount('#author')
+    </script>
+</body>
+</html>

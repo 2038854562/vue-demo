@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+    <style>
+        .classA{
+            color:red;
+        }
+        .classB{
+            font-size:20px;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>v-bind</h1>
+    <div id="app">
+        <p><img :src="imgSrc" alt=""></p>
+        <p><a :href="webUrl" target="_blank">jspang</a></p>
+        <p :class="className">1、绑定classA</p>
+        <p :class="{classA:isOk}">1、绑定classA</p>
+        <p :class="[classA, { classB: isOk}]">3、绑定class中的数组</p>
+        <p :class="isOk?classA:classB">三元运算符判断要添加的类</p>
+        <p :style="styleObject">绑定style</p>
+        <input type="checkbox" id="isOk" v-model="isOk">
+
+        <label for="isOk">{{isOk}}</label>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc:'https://cn.vuejs.org/images/logo.png',
+                webUrl:'http://jspang.com',
+                className:'classA',
+                isOk:true,
+                classA:'classA',
+                classB:'classB',
+                styleObject:{
+                    color:'red',
+                    fontSize:'25px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

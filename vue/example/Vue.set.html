@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.set全局操作</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>Vue.set全局操作</h1>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+    <!--外部添加-->
+    <button onclick="add()">button</button>
+    <script>
+        function add(){
+            Vue.set(app.arr,1,'ddd')
+        }
+        var outData = {
+            arr:['111','222','333']
+        }
+        var app = new Vue({
+            el: '#app',
+            data: outData
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component 标签</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>component 标签</h1>
+    <div id="app">
+        <component v-bind:is="which"></component>
+        <input type="button" value="切换按钮" @click="changeName()">
+    </div>
+    <script>
+        var componentA = {
+            template:`<h1>this is componentA</h1>`
+        };
+        var componentB = {
+            template:`<h2>this is componentB</h2>`
+        };
+        var componentC = {
+            template:`<h3>this is componentC</h3>`
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                which: 'componentA'
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC
+            },
+            methods:{
+                changeName:function(){
+                    if(this.which == "componentA"){
+                        this.which = "componentB"
+                    }else if(this.which=="componentB"){
+                        this.which = "componentC"
+                    }else{
+                        this.which = "componentA"
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

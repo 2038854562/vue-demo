@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extends Option  扩展选项</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>Extends Option  扩展选项</h1>
+    <div id="app">
+        <!--{{num}}
+        deliniters方法-->
+        ${num}
+        <p><button @click="add">extends</button></p>
+    </div>
+    <script>
+        var ExtendOption = {
+            learn:function(){
+                console.log('这是扩展的')
+            },
+            methods:{
+                add:function(){
+                    console.log('这是扩展的methods')
+                }
+            },
+            updated:function(){
+                console.log('扩展的updated')
+            }
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 1
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                    console.log('这是原生的methods')
+                }
+            },
+            updated:function(){
+                console.log('原生的的updated')
+            },
+            extends:ExtendOption,
+            //delimiters方法重新定义
+            delimiters:['${' , '}']
+        })
+    </script>
+</body>
+</html>
